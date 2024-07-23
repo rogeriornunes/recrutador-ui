@@ -8,17 +8,31 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  username = '';
-  password = '';
-  errorMessage = '';
+  username: string = '';
+  password: string = '';
+  errorMessage: string = '';
 
   constructor(private authService: AuthService, private router: Router) { }
 
   onSubmit(): void {
-    if (this.authService.login(this.username, this.password)) {
-      this.router.navigate(['/dashboard']); // Redireciona para o dashboard após login bem-sucedido
-    } else {
-      this.errorMessage = 'Invalid username or password';
-    }
+    this.authService.login(this.username, this.password).subscribe(
+      (response) => {
+        if (response.success) {
+          localStorage.setItem('token', response.token);
+          localStorage.setItem('role', response.role);
+          localStorage.setItem('username', response.username);
+          if (response.role === 'ROLE_ADMIN') {
+            this.router.navigate(['/admin-home']);
+          } else if (response.role === 'ROLE_USER') {
+            this.router.navigate(['/user-home']);
+          }
+        } else {
+          this.errorMessage = response.message || 'Invalid username or password';
+        }
+      },
+      (error) => {
+        this.errorMessage = 'An error occurred during login';
+      }
+    );
   }
 }

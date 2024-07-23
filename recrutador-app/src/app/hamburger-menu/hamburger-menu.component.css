@@ -1,0 +1,24 @@
+.dropdown-menu {
+    position: absolute;
+    transform: translate3d(0, 38px, 0);
+    top: 0px;
+    left: 0px;
+    will-change: transform;
+  }
+  
+  .dropdown-menu.show {
+    display: block;
+  }
+  
+  .dropdown-item {
+    padding: 10px 15px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #007bff;
+    color: white;
+  }
+
+  
+  

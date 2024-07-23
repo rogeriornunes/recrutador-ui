@@ -1,0 +1,10 @@
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" (click)="toggleMenu()" aria-expanded="false">
+      &#9776;
+    </button>
+    <ul class="dropdown-menu" [class.show]="menuOpen" aria-labelledby="dropdownMenuButton">
+      <li *ngIf="userRole === 'ROLE_ADMIN'"><a class="dropdown-item" routerLink="/create-job">Cadastrar Vagas</a></li>
+      <li><a class="dropdown-item" routerLink="/apply-job">Candidatar Vagas</a></li>
+    </ul>
+  </div>
+  
