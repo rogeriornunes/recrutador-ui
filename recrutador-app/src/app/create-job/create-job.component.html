@@ -1,1 +1,17 @@
-<p>create-job works!</p>
+<div class="create-job-container">
+    <h2>Cadastrar Vaga</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label for="title">Título</label>
+        <input type="text" id="title" [(ngModel)]="title" name="title" required>
+      </div>
+      <div>
+        <label for="description">Descrição</label>
+        <textarea id="description" [(ngModel)]="description" name="description" required></textarea>
+      </div>
+      <button type="submit">Cadastrar</button>
+    </form>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+  </div>
+  
