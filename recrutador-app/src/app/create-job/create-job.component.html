@@ -13,5 +13,6 @@
     </form>
     <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
     <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+    <button (click)="goBack()" class="btn btn-secondary">Voltar</button>
   </div>
   

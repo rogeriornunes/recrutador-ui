@@ -33,4 +33,14 @@ export class JobService {
     const headers = this.getHeaders();
     return this.http.post<any>(`${this.apiUrl}/create`, job, { headers });
   }
+
+  getJobs(): Observable<Job[]> {
+    const headers = this.getHeaders();
+    return this.http.get<Job[]>(`${this.apiUrl}`, { headers });
+  }
+
+  applyJob(jobId: number): Observable<any> {
+    const headers = this.getHeaders();
+    return this.http.post<any>(`${this.apiUrl}/apply/${jobId}`, {}, { headers });
+  }
 }

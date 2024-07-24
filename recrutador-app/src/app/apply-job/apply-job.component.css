@@ -1,0 +1,72 @@
+.apply-job-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .apply-job-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .apply-job-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .apply-job-container li {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .apply-job-container li h3 {
+    margin-top: 0;
+  }
+  
+  .apply-job-container li button {
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .apply-job-container li button:hover {
+    background-color: #0056b3;
+  }
+  
+  .apply-job-container .success {
+    color: green;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .apply-job-container .error {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .apply-job-container .btn-secondary {
+    width: 100%;
+    padding: 10px;
+    background-color: #6c757d;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .apply-job-container .btn-secondary:hover {
+    background-color: #5a6268;
+  }
+  

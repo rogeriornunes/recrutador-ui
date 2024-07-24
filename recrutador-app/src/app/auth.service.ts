@@ -20,17 +20,17 @@ interface RegistrationResponseDTO {
   providedIn: 'root'
 })
 export class AuthService {
-  private baseApiUrl = 'http://localhost:8080/api/auth';
+  private apiUrl = 'http://localhost:8080/api/auth';
   private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<AuthenticationResponseDTO> {
-    return this.http.post<AuthenticationResponseDTO>(this.baseApiUrl + '/authenticate', { username, password }, { headers: this.headers });
+    return this.http.post<AuthenticationResponseDTO>(`${this.apiUrl}/authenticate`, { username, password }, { headers: this.headers });
   }
 
   register(username: string, email: string, password: string, role: string): Observable<RegistrationResponseDTO> {
-    return this.http.post<RegistrationResponseDTO>(this.baseApiUrl + '/register', { username, email, password, role }, { headers: this.headers });
+    return this.http.post<RegistrationResponseDTO>(`${this.apiUrl}/register`, { username, email, password, role }, { headers: this.headers });
   }
 
   logout(): void {

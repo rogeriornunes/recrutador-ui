@@ -21,19 +21,19 @@ export class SignupComponent {
     this.authService.register(this.username, this.email, this.password, this.role).subscribe(
       (response) => {
         if (response.success) {
-          this.successMessage = 'Registration successful!';
+          this.successMessage = 'Cadastro realizado com sucesso!';
           this.errorMessage = '';
           // Redirecionar para a tela de login após um breve atraso
           setTimeout(() => {
             this.router.navigate(['/login']);
           }, 2000);
         } else {
-          this.errorMessage = response.message || 'Registration failed';
+          this.errorMessage = response.message || 'Cadastro falhou';
           this.successMessage = '';
         }
       },
       (error) => {
-        this.errorMessage = 'An error occurred during registration';
+        this.errorMessage = 'Ocorreu um erro durante o cadastro';
         this.successMessage = '';
       }
     );

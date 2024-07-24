@@ -1,1 +1,14 @@
-<p>apply-job works!</p>
+<div class="apply-job-container">
+    <h2>Lista de Vagas</h2>
+    <div *ngIf="successMessage" class="success">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    <ul>
+      <li *ngFor="let job of jobs">
+        <h3>{{ job.title }}</h3>
+        <p>{{ job.description }}</p>
+        <button (click)="apply(job.id)">Candidatar</button>
+      </li>
+    </ul>
+    <button (click)="goBack()" class="btn btn-secondary">Voltar</button>
+  </div>
+  

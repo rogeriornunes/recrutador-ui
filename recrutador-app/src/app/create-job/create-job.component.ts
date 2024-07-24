@@ -29,4 +29,7 @@ export class CreateJobComponent {
       }
     );
   }
+  goBack(): void {
+    this.router.navigate(['/admin-home']); // Navegar de volta para a página admin-home
+  }
 }

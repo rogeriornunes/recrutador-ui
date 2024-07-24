@@ -27,11 +27,11 @@ export class LoginComponent {
             this.router.navigate(['/user-home']);
           }
         } else {
-          this.errorMessage = response.message || 'Invalid username or password';
+          this.errorMessage = response.message || 'Nome de usuário ou senha inválidos';
         }
       },
       (error) => {
-        this.errorMessage = 'An error occurred during login';
+        this.errorMessage = 'Ocorreu um erro durante o login';
       }
     );
   }
