@@ -30,8 +30,8 @@ export class LoginComponent {
           this.errorMessage = response.message || 'Nome de usuário ou senha inválidos';
         }
       },
-      (error) => {
-        this.errorMessage = 'Ocorreu um erro durante o login';
+      error => {
+        this.errorMessage = 'Usuário e/ou senha inválidos.';
       }
     );
   }

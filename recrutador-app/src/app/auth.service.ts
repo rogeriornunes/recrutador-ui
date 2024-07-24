@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
 interface AuthenticationResponseDTO {
   token: string;
@@ -26,11 +26,17 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<AuthenticationResponseDTO> {
-    return this.http.post<AuthenticationResponseDTO>(`${this.apiUrl}/authenticate`, { username, password }, { headers: this.headers });
+    return this.http.post<AuthenticationResponseDTO>(`${this.apiUrl}/authenticate`, { username, password }, { headers: this.headers }) .pipe(
+      catchError(this.handleError)
+    );
   }
 
   register(username: string, email: string, password: string, role: string): Observable<RegistrationResponseDTO> {
     return this.http.post<RegistrationResponseDTO>(`${this.apiUrl}/register`, { username, email, password, role }, { headers: this.headers });
+  }
+
+  private handleError(error: any): Observable<never> {
+    return throwError(error);
   }
 
   logout(): void {
